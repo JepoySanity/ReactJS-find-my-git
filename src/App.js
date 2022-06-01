@@ -1,7 +1,11 @@
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 function App() {
   return (
-    <div className="bg-purple-500">
-      <h1 className="text-xl">jepoy</h1>
+    <div className="container mx-auto">
+      <Router>
+        <Navbar />
+      </Router>
     </div>
   );
 }
