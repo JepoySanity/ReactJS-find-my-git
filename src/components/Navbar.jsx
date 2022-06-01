@@ -22,7 +22,7 @@ function Navbar({ title }) {
             Home
           </Link>
           <Link
-            to="/"
+            to="/about"
             className="btn btn-ghost normal-case text-lg font-bold text-white"
           >
             About
