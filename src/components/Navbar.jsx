@@ -14,18 +14,18 @@ function Navbar({ title }) {
         </Link>
       </div>
       <div className="flex-none">
-        <ul className="menu menu-horizontal p-0">
-          <li>
-            <Link to="/home" className="text-white font-bold">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="text-white font-bold">
-              About
-            </Link>
-          </li>
-        </ul>
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-lg font-bold text-white"
+        >
+          Home
+        </Link>
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-lg font-bold text-white"
+        >
+          About
+        </Link>
       </div>
     </nav>
   );
