@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import UserItem from "./UserItem";
+
 function UserResults() {
   const [users, setusers] = useState([]);
   const [isLoading, setisLoading] = useState(true);
@@ -16,14 +18,14 @@ function UserResults() {
 
   if (!isLoading) {
     return (
-      <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-        {users.map((user, key) => (
-          <h1 key={key}>{user.login}</h1>
+      <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 py-6">
+        {users.map((user) => (
+          <UserItem key={user.id} user={user} />
         ))}
       </div>
     );
   } else {
-    return <h1>gegegege.....</h1>;
+    return <h1>Loading.....</h1>;
   }
 }
 
