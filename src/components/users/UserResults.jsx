@@ -7,7 +7,7 @@ function UserResults() {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [getUsers]);
 
   if (!isLoading) {
     return (
