@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
 import UserItem from "./UserItem";
+import GitHubContext from "../../context/github/GithubContext";
 
 function UserResults() {
-  const [users, setusers] = useState([]);
-  const [isLoading, setisLoading] = useState(true);
+  const { users, isLoading, getUsers } = useContext(GitHubContext);
 
   useEffect(() => {
     getUsers();
   }, []);
-
-  const getUsers = async () => {
-    const response = await fetch(`${process.env.REACT_APP_GITHUB_URL}/users`);
-    const data = await response.json();
-    setusers(data);
-    setisLoading(false);
-  };
 
   if (!isLoading) {
     return (
