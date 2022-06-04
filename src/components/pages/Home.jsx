@@ -1,13 +1,10 @@
 import UserResults from "../users/UserResults";
+import UserSearch from "../users/UserSearch";
 
 function Home() {
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search User . . ."
-        class="input input-bordered input-lg w-full"
-      />
+      <UserSearch />
       <UserResults />
     </>
   );
