@@ -3,7 +3,8 @@ import GitHubContext from "../../context/github/GithubContext";
 
 function UserSearch() {
   const [search, setSearch] = useState("");
-  const { users, searchUsers, clearUsers, loading } = useContext(GitHubContext);
+  const { users, searchUsers, clearUsers, loading, setLoading } =
+    useContext(GitHubContext);
 
   const handleInputChange = (e) => {
     setSearch(e.target.value);
@@ -14,6 +15,7 @@ function UserSearch() {
     if (search === "") {
       alert("input is required");
     } else {
+      setLoading();
       searchUsers(search);
       setSearch("");
     }
