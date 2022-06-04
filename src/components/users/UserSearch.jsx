@@ -3,7 +3,7 @@ import GitHubContext from "../../context/github/GithubContext";
 
 function UserSearch() {
   const [search, setSearch] = useState("");
-  const { users, searchUsers, clearUsers } = useContext(GitHubContext);
+  const { users, searchUsers, clearUsers, loading } = useContext(GitHubContext);
 
   const handleInputChange = (e) => {
     setSearch(e.target.value);
@@ -28,7 +28,7 @@ function UserSearch() {
     <>
       <form id="search_user" onSubmit={submitSearchForm}>
         <div className="flex">
-          {users.length === 0 && (
+          {loading === false && users.length === 0 && (
             <>
               <input
                 type="text"
