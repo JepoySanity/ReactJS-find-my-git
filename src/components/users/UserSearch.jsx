@@ -44,7 +44,7 @@ function UserSearch() {
         </div>
         {users.length > 0 && (
           <button onClick={clearUsersState} className="btn btn-lg mt-6">
-            Clear
+            Clear Search
           </button>
         )}
       </form>
