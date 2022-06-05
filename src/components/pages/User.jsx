@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaUserPlus, FaUserFriends, FaGithub, FaStore } from "react-icons/fa";
 import GitHubContext from "../../context/github/GithubContext";
 import Spinner from "../pages/Spinner";
 
@@ -18,8 +19,8 @@ function User() {
     return (
       <>
         <div className="w-full mx-auto">
-          <div className="mb-4">
-            <Link to="/" className="btn btn-sm rounded">
+          <div className="mb-6">
+            <Link to="/" className="btn btn-md btn-outline">
               Back to search
             </Link>
           </div>
@@ -43,12 +44,9 @@ function User() {
               <div className="mb-6">
                 <h1 className="text-3xl text-white card-title">
                   {user.name}
-                  <div className="ml-2 mr-1 badge badge-success">
+                  <div className="ml-2 mr-1 badge badge-accent">
                     {user.type}
                   </div>
-                  {user.location && (
-                    <div className="mx-1 badge badge-info">{user.location}</div>
-                  )}
                 </h1>
                 <p className="mt-2">{user.bio}</p>
                 <div className="mt-4 card-actions">
@@ -56,12 +54,77 @@ function User() {
                     href={user.html_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn btn-outline"
+                    className="btn btn-md"
                   >
                     View on Github
                   </a>
                 </div>
               </div>
+              <div className="w-full rounded-lg shadow-md bg-base-100 stats">
+                {user.location && (
+                  <div className="stat">
+                    <div className="stat-title text-md">Location</div>
+                    <div className="text-lg stat-value">{user.location}</div>
+                  </div>
+                )}
+                {user.blog && (
+                  <div className="stat">
+                    <div className="stat-title text-md">Website</div>
+                    <div className="text-lg stat-value">
+                      <a href={user.blog} target="_blank" rel="noreferrer">
+                        Click Me!
+                      </a>
+                    </div>
+                  </div>
+                )}
+                {user.twitter_username && (
+                  <div className="stat">
+                    <div className="stat-title text-md">Twitter</div>
+                    <div className="text-lg stat-value">
+                      <a
+                        href={`https://twitter.com/${user.twitter_username}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {user.twitter_username}
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+          <div class="stats shadow w-full">
+            <div class="stat">
+              <div class="stat-figure text-accent">
+                <FaUserFriends className="text-5xl" />
+              </div>
+              <div class="stat-title">Followers</div>
+              <div class="stat-value">{user.followers}</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-figure text-accent">
+                <FaUserPlus className="text-5xl" />
+              </div>
+              <div class="stat-title">Following</div>
+              <div class="stat-value">{user.following}</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-figure text-accent">
+                <FaGithub className="text-5xl" />
+              </div>
+              <div class="stat-title">Repositories</div>
+              <div class="stat-value">{user.public_repos}</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-figure text-accent">
+                <FaStore className="text-5xl" />
+              </div>
+              <div class="stat-title">Gists</div>
+              <div class="stat-value">{user.public_gists}</div>
             </div>
           </div>
         </div>

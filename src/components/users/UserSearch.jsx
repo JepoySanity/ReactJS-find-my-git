@@ -50,7 +50,10 @@ function UserSearch() {
           )}
         </div>
         {users.length > 0 && (
-          <button onClick={clearUsersState} className="btn btn-lg mt-6">
+          <button
+            onClick={clearUsersState}
+            className="btn btn-md btn-outline mt-6 "
+          >
             Clear Search
           </button>
         )}
