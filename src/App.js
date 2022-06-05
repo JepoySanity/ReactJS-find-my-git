@@ -6,6 +6,7 @@ import About from "./components/pages/About";
 import Page404 from "./components/pages/Page404";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Alert from "./components/alert/Alert";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <div className="flex flex-col justify-between h-screen">
               <Navbar />
               <main className="container mx-auto px-7">
+                <Alert />
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />

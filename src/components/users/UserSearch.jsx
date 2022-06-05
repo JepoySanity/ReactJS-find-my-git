@@ -15,10 +15,10 @@ function UserSearch() {
   const submitSearchForm = (e) => {
     e.preventDefault();
     if (search === "") {
-      setAlert("Ooooop! Search cannot be empty!", "error");
+      setAlert("Ooooops! Search cannot be empty!", "error");
       setTimeout(() => {
         dismissAlert();
-      }, 3000);
+      }, 100000);
     } else {
       setLoading();
       searchUsers(search);
