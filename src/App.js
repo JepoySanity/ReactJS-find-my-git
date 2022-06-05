@@ -7,6 +7,7 @@ import Page404 from "./components/pages/Page404";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Alert from "./components/alert/Alert";
+import User from "./components/pages/User";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="/user/:login" element={<User />} />
                   <Route path="/page_404" element={<Page404 />} />
                   <Route path="/*" element={<Page404 />} />
                 </Routes>
