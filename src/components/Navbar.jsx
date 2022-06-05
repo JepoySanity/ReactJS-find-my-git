@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { FaGithub } from "react-icons/fa";
+import { FaGithubAlt, FaSearch } from "react-icons/fa";
 function Navbar({ title }) {
   return (
     <div className="container mx-auto">
@@ -10,7 +10,8 @@ function Navbar({ title }) {
             to="/"
             className="btn btn-ghost normal-case text-xl font-bold text-white"
           >
-            <FaGithub className="mr-2" />
+            <FaGithubAlt className="mr-2 text-2xl" />
+            <FaSearch className="mr-2 text-2xl text-accent" />
             {title}
           </Link>
         </div>
