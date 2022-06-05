@@ -2,16 +2,19 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUserPlus, FaUserFriends, FaGithub, FaStore } from "react-icons/fa";
+import UserRepos from "../users/UserRepos";
 import GitHubContext from "../../context/github/GithubContext";
 import Spinner from "../pages/Spinner";
 
 function User() {
-  const { user, getUserInfo, loading, setLoading } = useContext(GitHubContext);
+  const { user, repos, getUserInfo, loading, setLoading, getUserRepos } =
+    useContext(GitHubContext);
   const params = useParams();
 
   useEffect(() => {
     setLoading();
     getUserInfo(params.login);
+    getUserRepos(params.login);
   }, []);
   if (loading) {
     return <Spinner />;
@@ -127,6 +130,7 @@ function User() {
               <div class="stat-value">{user.public_gists}</div>
             </div>
           </div>
+          <UserRepos repos={repos} />
         </div>
       </>
     );
