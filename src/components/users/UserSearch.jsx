@@ -18,7 +18,7 @@ function UserSearch() {
       setAlert("Ooooops! Search cannot be empty!", "error");
       setTimeout(() => {
         dismissAlert();
-      }, 100000);
+      }, 3000);
     } else {
       setLoading();
       searchUsers(search);
