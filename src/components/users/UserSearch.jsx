@@ -2,12 +2,14 @@ import { useState, useContext } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import GitHubContext from "../../context/github/GithubContext";
+import AlertContext from "../../context/alert/AlertContext";
 
 function UserSearch() {
   const notifyError = (message) => toast.error(message);
   const [search, setSearch] = useState("");
   const { users, searchUsers, clearUsers, loading, setLoading } =
     useContext(GitHubContext);
+  const { setAlert, dismissAlert } = useContext(AlertContext);
 
   const handleInputChange = (e) => {
     setSearch(e.target.value);
@@ -16,7 +18,10 @@ function UserSearch() {
   const submitSearchForm = (e) => {
     e.preventDefault();
     if (search === "") {
-      notifyError("Search box cannot be empty!");
+      setAlert("Ooooop! Search cannot be empty!", "error");
+      setTimeout(() => {
+        dismissAlert();
+      }, 3000);
     } else {
       setLoading();
       searchUsers(search);
