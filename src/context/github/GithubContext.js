@@ -45,6 +45,10 @@ export const GitHubProvider = ({ children }) => {
     dispatch({ type: "SET_LOADING" });
   };
 
+  const clearUserInfo = () => {
+    dispatch({ type: "CLEAR_USER_INFO" });
+  };
+
   return (
     <GitHubContext.Provider
       value={{
@@ -55,6 +59,7 @@ export const GitHubProvider = ({ children }) => {
         clearUsers,
         setLoading,
         getUserInfo,
+        clearUserInfo,
       }}
     >
       {children}
