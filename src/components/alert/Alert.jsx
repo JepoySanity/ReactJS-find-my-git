@@ -6,8 +6,12 @@ function Alert() {
   return (
     alert !== null && (
       <div className="flex gap-1 mb-3">
-        {alert.type === "error" && <FcCancel className="self-center" />}
-        {alert.type === "success" && <FcOk className="self-center" />}
+        {alert.type === "error" && (
+          <FcCancel className="self-center" style={{ fontSize: 25 }} />
+        )}
+        {alert.type === "success" && (
+          <FcOk className="self-center" style={{ fontSize: 25 }} />
+        )}
         <h1 className="text-md text-white font-bold">{alert.msg}</h1>
       </div>
     )
