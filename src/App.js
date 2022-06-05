@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { GitHubProvider } from "./context/github/GithubContext";
 import { AlertProvider } from "./context/alert/AlertContext";
 import Home from "./components/pages/Home";
@@ -14,18 +13,6 @@ function App() {
       <GitHubProvider>
         <AlertProvider>
           <Router>
-            <ToastContainer
-              theme="dark"
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
             <div className="flex flex-col justify-between h-screen">
               <Navbar />
               <main className="container mx-auto px-7">

@@ -1,11 +1,8 @@
 import { useState, useContext } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import GitHubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
 
 function UserSearch() {
-  const notifyError = (message) => toast.error(message);
   const [search, setSearch] = useState("");
   const { users, searchUsers, clearUsers, loading, setLoading } =
     useContext(GitHubContext);
