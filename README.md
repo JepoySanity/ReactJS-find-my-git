@@ -1,9 +1,12 @@
-# Github finder 🔍
+# Github finder 🔍👁‍🗨
+SPA that implements fetch API to get user data on githubAPI
 
 ## Stack
+
 ### `ReactJS` - https://reactjs.org/
 ### `TailwindCSS` - https://tailwindcss.com/
 ### `TailwindCSS` - https://daisyui.com/
+### `githubAPI` - https://docs.github.com/en/rest
 
 
 ## Live Demo
