@@ -1,5 +1,11 @@
 # Github finder 🔍
 
+## Stack
+### `React.js`
+### `TailwindCSS`
+### `TailwindCSS`
+
+
 ## Live Demo
 
 https://629e10f168753b00081f226a--wondrous-seahorse-2f0058.netlify.app/
