@@ -22,6 +22,7 @@ function User() {
     setLoading();
     getUserInfo(login);
     getUserRepos(login);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   //check if loading state is true
   if (loading) {
