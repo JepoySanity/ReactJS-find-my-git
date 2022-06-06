@@ -9,7 +9,9 @@ https://www.netlify.com/
 
 ## Screenshots
 ![1](https://user-images.githubusercontent.com/39158843/172185492-4b84bfa3-3b5f-4a8c-bd05-4f204961b55b.PNG)
+
 ![2](https://user-images.githubusercontent.com/39158843/172185508-85bd47f0-ad6a-4044-9752-595aec991901.png)
+
 ![3](https://user-images.githubusercontent.com/39158843/172185520-1d237429-bf9e-4fb1-ab78-0abe4db04314.png)
 
 ## Available Scripts
