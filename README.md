@@ -1,9 +1,9 @@
 # Github finder 🔍
 
 ## Stack
-### `React.js` - https://reactjs.org/
-### `TailwindCSS` - https://tailwindcss.com/
-### `TailwindCSS` - https://daisyui.com/
+`ReactJS` - https://reactjs.org/
+`TailwindCSS` - https://tailwindcss.com/
+`TailwindCSS` - https://daisyui.com/
 
 
 ## Live Demo
