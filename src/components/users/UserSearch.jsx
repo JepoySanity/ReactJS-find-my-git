@@ -1,11 +1,12 @@
 import { useState, useContext } from "react";
 import { FaRegTimesCircle } from "react-icons/fa";
+import { searchUsers } from "../../context/github/GithubActions";
 import GitHubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
 
 function UserSearch() {
   const [search, setSearch] = useState("");
-  const { users, searchUsers, clearUsers, loading, setLoading } =
+  const { users, dispatch, clearUsers, loading, setLoading } =
     useContext(GitHubContext);
   const { setAlert, dismissAlert } = useContext(AlertContext);
 
@@ -13,7 +14,7 @@ function UserSearch() {
     setSearch(e.target.value);
   };
 
-  const submitSearchForm = (e) => {
+  const submitSearchForm = async (e) => {
     e.preventDefault();
     if (search === "") {
       setAlert("Ooooops! Search cannot be empty!", "error");
@@ -22,7 +23,8 @@ function UserSearch() {
       }, 3000);
     } else {
       setLoading();
-      searchUsers(search);
+      const users = await searchUsers();
+      dispatch({ type: "GET_USERS", payload: users });
       setSearch("");
     }
   };
