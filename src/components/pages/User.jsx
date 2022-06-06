@@ -34,7 +34,7 @@ function User() {
             <Link to="/">
               <div className="flex gap-2 items-center font-bold text-lg">
                 <FaArrowLeft />
-                <p>back to login</p>
+                <p>back to search</p>
               </div>
             </Link>
           </div>
