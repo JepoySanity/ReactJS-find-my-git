@@ -57,7 +57,7 @@ function User() {
                     href={user.html_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn btn-md"
+                    className="btn btn-md glass"
                   >
                     View on Github
                   </a>

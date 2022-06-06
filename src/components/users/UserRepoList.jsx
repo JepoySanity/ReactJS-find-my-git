@@ -1,7 +1,7 @@
 import { FaEye, FaInfo, FaLink, FaStar, FaUtensils } from "react-icons/fa";
 function UserRepoList({ repo }) {
   return (
-    <div className="mb-2 rounded-md card bg-gray-800 hover:bg-gray-900">
+    <div className="mb-2 rounded-md card bg-base-200 hover:bg-gray-900">
       <div className="card-body">
         <h3 className="mb-2 text-xl font-semibold">
           <a href={repo.html_url} target="_blank" rel="noreferrer">
