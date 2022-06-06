@@ -1,8 +1,10 @@
 function About() {
   return (
-    <div className="mockup-window border bg-base-300">
+    <div className="mockup-window border bg-base-300 mt-8 mb-8">
       <div className="flex justify-center pt-10 bg-base-200">
-        <h1 className="text-3xl font-bold">This is the About page</h1>
+        <h1 className="text-3xl font-bold px-10 py-5">
+          This is the About page
+        </h1>
       </div>
       <div className="flex justify-center p-10 bg-base-200">
         <h1 className="text-md">

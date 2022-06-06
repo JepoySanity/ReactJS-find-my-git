@@ -21,7 +21,7 @@ function User() {
   } else {
     return (
       <>
-        <div className="w-full mx-auto">
+        <div className="w-full mx-auto mt-8">
           <div className="mb-6">
             <Link to="/" className="btn btn-md btn-outline">
               Back to search
