@@ -1,7 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaUserPlus, FaUserFriends, FaGithub, FaStore } from "react-icons/fa";
+import {
+  FaUserPlus,
+  FaUserFriends,
+  FaGithub,
+  FaStore,
+  FaArrowLeft,
+} from "react-icons/fa";
 import UserRepos from "../users/UserRepos";
 import GitHubContext from "../../context/github/GithubContext";
 import Spinner from "../pages/Spinner";
@@ -10,21 +16,26 @@ function User() {
   const { user, repos, getUserInfo, loading, setLoading, getUserRepos } =
     useContext(GitHubContext);
   const params = useParams();
-
+  const login = params.login;
+  //functions to execute upon page load
   useEffect(() => {
     setLoading();
-    getUserInfo(params.login);
-    getUserRepos(params.login);
+    getUserInfo(login);
+    getUserRepos(login);
   }, []);
+  //check if loading state is true
   if (loading) {
     return <Spinner />;
   } else {
     return (
       <>
         <div className="w-full mx-auto mt-8">
-          <div className="mb-6">
-            <Link to="/" className="btn btn-md btn-outline">
-              Back to search
+          <div className="mb-6 ">
+            <Link to="/">
+              <div className="flex gap-2 items-center font-bold text-lg">
+                <FaArrowLeft />
+                <p>back to login</p>
+              </div>
             </Link>
           </div>
           <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 mb-8 md:gap-8">
@@ -57,7 +68,7 @@ function User() {
                     href={user.html_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn btn-md glass"
+                    className="btn btn-md btn-outline"
                   >
                     View on Github
                   </a>

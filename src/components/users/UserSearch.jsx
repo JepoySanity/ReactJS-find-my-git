@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { FaRegTimesCircle } from "react-icons/fa";
 import GitHubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
 
@@ -50,11 +51,11 @@ function UserSearch() {
           )}
         </div>
         {users.length > 0 && (
-          <button
-            onClick={clearUsersState}
-            className="btn btn-md btn-outline mt-6 "
-          >
-            Clear Search
+          <button onClick={clearUsersState} className="mt-8 font-bold text-lg">
+            <div className="flex gap-2 items-center">
+              <FaRegTimesCircle />
+              <p>clear search</p>
+            </div>
           </button>
         )}
       </form>
