@@ -7,6 +7,7 @@ function Home() {
   const { clearUserInfo } = useContext(GitHubContext);
   useEffect(() => {
     clearUserInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
