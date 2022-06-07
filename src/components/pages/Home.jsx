@@ -4,7 +4,10 @@ import UserResults from "../users/UserResults";
 import UserSearch from "../users/UserSearch";
 
 function Home() {
-  const { clearUserInfo } = useContext(GitHubContext);
+  const { dispatch } = useContext(GitHubContext);
+  const clearUserInfo = () => {
+    dispatch({ type: "CLEAR_USER_INFO" });
+  };
   useEffect(() => {
     clearUserInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps

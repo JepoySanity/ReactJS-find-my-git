@@ -28,54 +28,54 @@ export const GitHubProvider = ({ children }) => {
   //   });
   // };
 
-  const getUserInfo = async (login) => {
-    const response = await fetch(`${GITHUB_URL}/users/${login}`);
-    const data = await response.json();
+  // const getUserInfo = async (login) => {
+  //   const response = await fetch(`${GITHUB_URL}/users/${login}`);
+  //   const data = await response.json();
 
-    dispatch({
-      type: "GET_USER",
-      payload: data,
-    });
-  };
+  //   dispatch({
+  //     type: "GET_USER",
+  //     payload: data,
+  //   });
+  // };
 
-  const getUserRepos = async (login) => {
-    const params = new URLSearchParams({
-      sort: "created",
-      per_page: 10,
-    });
-    const response = await fetch(
-      `${GITHUB_URL}/users/${login}/repos?${params}`
-    );
-    const data = await response.json();
+  // const getUserRepos = async (login) => {
+  //   const params = new URLSearchParams({
+  //     sort: "created",
+  //     per_page: 10,
+  //   });
+  //   const response = await fetch(
+  //     `${GITHUB_URL}/users/${login}/repos?${params}`
+  //   );
+  //   const data = await response.json();
 
-    dispatch({
-      type: "GET_USER_REPOS",
-      payload: data,
-    });
-  };
+  //   dispatch({
+  //     type: "GET_USER_REPOS",
+  //     payload: data,
+  //   });
+  // };
 
-  const clearUsers = () => {
-    dispatch({ type: "CLEAR_USERS" });
-  };
+  // const clearUsers = () => {
+  //   dispatch({ type: "CLEAR_USERS" });
+  // };
 
-  const setLoading = () => {
-    dispatch({ type: "SET_LOADING" });
-  };
+  // const setLoading = () => {
+  //   dispatch({ type: "SET_LOADING" });
+  // };
 
-  const clearUserInfo = () => {
-    dispatch({ type: "CLEAR_USER_INFO" });
-  };
+  // const clearUserInfo = () => {
+  //   dispatch({ type: "CLEAR_USER_INFO" });
+  // };
 
   return (
     <GitHubContext.Provider
       value={{
         ...state,
         dispatch,
-        clearUsers,
-        setLoading,
-        getUserInfo,
-        getUserRepos,
-        clearUserInfo,
+        // clearUsers,
+        // setLoading,
+        // getUserInfo,
+        // getUserRepos,
+        // clearUserInfo,
       }}
     >
       {children}

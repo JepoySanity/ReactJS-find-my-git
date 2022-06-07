@@ -22,16 +22,11 @@ function UserSearch() {
         dismissAlert();
       }, 3000);
     } else {
-      setLoading();
+      dispatch({ type: "SET_LOADING" });
       const users = await searchUsers();
       dispatch({ type: "GET_USERS", payload: users });
       setSearch("");
     }
-  };
-
-  const clearUsersState = (e) => {
-    e.preventDefault();
-    clearUsers();
   };
 
   return (
@@ -53,7 +48,10 @@ function UserSearch() {
           )}
         </div>
         {users.length > 0 && (
-          <button onClick={clearUsersState} className="mt-8 font-bold text-lg">
+          <button
+            onClick={() => dispatch({ type: "CLEAR_USERS" })}
+            className="mt-8 font-bold text-lg"
+          >
             <div className="flex gap-2 items-center">
               <FaRegTimesCircle />
               <p>clear search</p>
