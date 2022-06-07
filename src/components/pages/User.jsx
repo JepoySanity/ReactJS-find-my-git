@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getUserInfo, getUserRepos } from "../../context/github/GithubActions";
+import { getUserInfoAndRepos } from "../../context/github/GithubActions";
 import {
   FaUserPlus,
   FaUserFriends,
@@ -20,15 +20,10 @@ function User() {
   useEffect(() => {
     dispatch({ type: "SET_LOADING" });
     const getUserData = async () => {
-      const userData = await getUserInfo(params.login);
+      const userData = await getUserInfoAndRepos(params.login);
       dispatch({
-        type: "GET_USER",
+        type: "GET_USER_AND_REPOS",
         payload: userData,
-      });
-      const userRepos = await getUserRepos(params.login);
-      dispatch({
-        type: "GET_USER_REPOS",
-        payload: userRepos,
       });
     };
     getUserData();
