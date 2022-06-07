@@ -22,7 +22,7 @@ function UserSearch() {
       }, 3000);
     } else {
       dispatch({ type: "SET_LOADING" });
-      const users = await searchUsers();
+      const users = await searchUsers(search);
       dispatch({ type: "GET_USERS", payload: users });
       setSearch("");
     }

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getUserInfo, getUserRepos } from "../../context/github/GithubActions";
 import {
   FaUserPlus,
   FaUserFriends,
@@ -11,30 +12,27 @@ import {
 import UserRepos from "../users/UserRepos";
 import GitHubContext from "../../context/github/GithubContext";
 import Spinner from "../pages/Spinner";
-import { getUserInfo, getUserRepos } from "../../context/github/GithubActions";
 
 function User() {
   const { user, repos, loading, dispatch } = useContext(GitHubContext);
   const params = useParams();
-  const login = params.login;
   //functions to execute upon page load
   useEffect(() => {
     dispatch({ type: "SET_LOADING" });
     const getUserData = async () => {
-      const userData = await getUserInfo(login);
+      const userData = await getUserInfo(params.login);
       dispatch({
         type: "GET_USER",
         payload: userData,
       });
-      const userRepos = await getUserRepos(login);
+      const userRepos = await getUserRepos(params.login);
       dispatch({
         type: "GET_USER_REPOS",
         payload: userRepos,
       });
     };
     getUserData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch, params.login]);
   //check if loading state is true
   if (loading) {
     return <Spinner />;
