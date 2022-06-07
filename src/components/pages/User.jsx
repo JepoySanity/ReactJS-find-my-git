@@ -11,17 +11,28 @@ import {
 import UserRepos from "../users/UserRepos";
 import GitHubContext from "../../context/github/GithubContext";
 import Spinner from "../pages/Spinner";
+import { getUserInfo, getUserRepos } from "../../context/github/GithubActions";
 
 function User() {
-  const { user, repos, getUserInfo, loading, setLoading, getUserRepos } =
-    useContext(GitHubContext);
+  const { user, repos, loading, dispatch } = useContext(GitHubContext);
   const params = useParams();
   const login = params.login;
   //functions to execute upon page load
   useEffect(() => {
-    setLoading();
-    getUserInfo(login);
-    getUserRepos(login);
+    dispatch({ type: "SET_LOADING" });
+    const getUserData = async () => {
+      const userData = await getUserInfo(login);
+      dispatch({
+        type: "GET_USER",
+        payload: userData,
+      });
+      const userRepos = await getUserRepos(login);
+      dispatch({
+        type: "GET_USER_REPOS",
+        payload: userRepos,
+      });
+    };
+    getUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   //check if loading state is true

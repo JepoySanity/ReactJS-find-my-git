@@ -3,7 +3,7 @@ import GitHubReducer from "./GitHubReducer";
 
 const GitHubContext = createContext();
 
-const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
+// const GITHUB_URL = process.env.REACT_APP_GITHUB_URL;
 
 export const GitHubProvider = ({ children }) => {
   const initialState = {
